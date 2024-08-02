@@ -1,0 +1,46 @@
+# 服务器配置
+server:
+  #端口
+  port: 8080
+  #servlet配置
+  servlet:
+    #全局路径
+    context-path: /
+
+# 连接池配置
+spring:
+  #连接池配置
+  datasource:
+    #连接池类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    #druid配置
+    druid:
+      url: jdbc:mysql://localhost:3306/sm_db
+      username: root
+      #如果密码为纯数字连接失败，则可尝试转成字符串，如：‘123456’
+      password:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+# mybatis-plus的配置
+mybatis-plus:
+  #给实体类批量取别名
+  type-aliases-package: com.xblteam.pojo
+  #全局配置
+  global-config:
+    #数据库配置
+    db-config:
+      #全局逻辑删除
+      logic-delete-field: isDeleted
+      #主键策略：自增长
+      id-type: auto
+      # 设置表的前缀
+      table-prefix: news_
+
+#jwt配置
+jwt:
+  #token配置
+  token:
+    #有效时间,单位分钟
+    tokenExpiration: 120
+    #当前程序签名秘钥 自定义
+    tokenSignKey: headline123456
